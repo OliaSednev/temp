@@ -1,0 +1,11 @@
+<div class="block">
+    <ul class="list-style">
+        <li *ngFor="let protocol of protocols"
+            class="protocol-item">
+            <input type="checkbox"
+                   [(ngModel)]="protocol.state"
+                   (change)="checkUncheckProtocol(protocol, $event)">
+            <span>{{protocol.name}}</span>
+        </li>
+    </ul>
+</div>

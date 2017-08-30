@@ -1,0 +1,79 @@
+<div class="container container-margin-top">
+
+    <div *ngIf="campaignData && campaignData.length > 0" class="row">
+
+        <div class="content">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="card">
+                            <div class="card-header" data-background-color="purple">
+                                <h4 class="title">{{campaignData[0].website}}</h4>
+                                <p class="category">Here is a campaign statistics</p>
+                            </div>
+                            <div class="card-content table-responsive">
+                                <table class="table table-condensed table-hover table-bordered">
+                                    <thead>
+                                    <tr>
+                                        <th>Campaign</th>
+                                        <th>Impressions</th>
+                                        <th>Clicks</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                    <tr *ngFor="let campaign of campaignData">
+                                        <td class="col-sm-2">{{campaign.brand}}</td>
+                                        <td class="col-sm-2">{{campaign.impressions}}</td>
+                                        <td class="col-sm-2">{{campaign.clicks}}</td>
+                                    </tr>
+                                    </tbody>
+                                </table>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+
+            <div class="col-sm-offset-2 col-sm-3 chart-panel">
+                <span>Clicks Distribution</span>
+            </div>
+
+            <div class="col-sm-2">
+                <button class="btn btn-primary"(click)="randomizeType()">Toggle</button>
+            </div>
+
+            <div class="col-sm-offset-0 col-sm-3 chart-panel">
+                <span>Impressions Distribution</span>
+            </div>
+
+        </div>
+
+        <div class="row">
+
+            <div class="col-sm-offset-2 col-sm-3">
+                <canvas baseChart
+                        class="chart-canvas"
+                        [data]="clicksChartData"
+                        [labels]="pieChartLabels"
+                        [chartType]="chartType">
+                </canvas>
+            </div>
+
+            <div class="col-sm-offset-2 col-sm-3">
+                <canvas baseChart
+                        class="chart-canvas"
+                        [data]="impressionsChartData"
+                        [labels]="pieChartLabels"
+                        [chartType]="chartType">
+                </canvas>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>

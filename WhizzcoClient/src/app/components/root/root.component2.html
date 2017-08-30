@@ -1,0 +1,81 @@
+<div class="wrapper">
+
+    <div class="sidebar" data-color="purple">
+         <!--data-image="../../../assets/images/Whizzco_Logo2.png">-->
+        <!--
+            Tip 1: You can change the color of the sidebar using: data-color="purple | blue | green | orange | red"
+
+            Tip 2: you can also add an image using data-image tag
+        -->
+
+        <div class="logo">
+            <img src="../../../assets/images/Whizzco_Logo2.png" height="20%" width="20%"/>
+            <a href="" class="simple-text logo-text">
+                Freshly squized content
+            </a>
+        </div>
+
+        <!--<img src="../../../assets/images/Whizzco_Logo.jpg" height="380" width="772"/>-->
+        <div class="sidebar-wrapper" *ngIf="loggedInUser">
+            <ul class="nav">
+                <li [class.active]="isActive('/dashboard')">
+                    <a routerLink="/dashboard">
+                        <i class="material-icons">dashboard</i>
+                        <p>Dashboard</p>
+                    </a>
+                </li>
+                <li [class.active]="isActive('/websites')">
+                    <a routerLink="/websites">
+                        <i class="material-icons">language</i>
+                        <p>Websites</p>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="main-panel">
+        <nav class="navbar navbar-transparent navbar-absolute">
+            <div class="container-fluid">
+                <div class="navbar-header" *ngIf="loggedInUser">
+                    <span class="navbar-brand">{{componentTitle}}</span>
+                </div>
+                <div class="collapse navbar-collapse">
+                    <ul class="nav navbar-nav navbar-right">
+                        <li>
+                            <a routerLink="/dashboard" class="dropdown-toggle" data-toggle="dropdown">
+                                <i class="material-icons">dashboard</i>
+                                <p class="hidden-lg hidden-md">Dashboard</p>
+                            </a>
+                        </li>
+
+                        <li>
+                            <div dropdown class="profile-dropdown">
+                                <div dropdownToggle>
+                                    <i class="material-icons">person</i>
+                                    <span  *ngIf="loggedInUser">Hi {{username}}!</span>
+                                </div>
+
+                                <ul class="dropdown-menu" dropdown role="menu">
+                                    <li role="menuitem">
+                                        <a class="dropdown-item" (click)="logout()">
+                                            <span class="fa fa-sign-out"></span>
+                                            Log out
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+
+        <div class="content">
+            <div class="container-fluid">
+                <router-outlet></router-outlet>
+            </div>
+        </div>
+
+    </div>
+</div>

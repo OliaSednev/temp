@@ -1,0 +1,76 @@
+<div class="container-fluid hidden-print site-header">
+    <div class="row site-header-row">
+        <div class="container">
+            <div class="row">
+                <div class="col-logo">
+                    <div class="corner left-corner"></div>
+                    <a routerLink="/">
+                        <img src="/assets/images/regus-logo.png">
+                    </a>
+                    <div class="corner right-corner"></div>
+                    <div class="spacebook-logo"></div>
+                </div>
+                <div class="col-icons">
+
+                </div>
+            </div>
+
+            <div class="col-xs-6 text-right site-header-bar pull-right">
+                <ul class="list-no-style list-toolbar pull-right" *ngIf="loggedInUser">
+                    <li>
+                        <div dropdown class="profile-dropdown">
+                            <div dropdownToggle>
+                                <span class="fa fa-user-circle-o"></span>
+                                Hi {{username}}!
+                            </div>
+
+                            <ul class="dropdown-menu" dropdown role="menu">
+                                <li role="menuitem">
+                                    <a class="dropdown-item" href="//board.pickspace.net/change-password">
+                                        <span class="fa fa-key"></span>
+                                        Change Password
+                                    </a>
+                                </li>
+                                <li role="menuitem">
+                                    <a class="dropdown-item" (click)="logout()">
+                                        <span class="fa fa-sign-out"></span>
+                                        Log out
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<div class="main-container">
+
+    <div class="logo-bar">
+        <h1>Some LOGO</h1>
+    </div>
+
+    <div>
+        <aside class="navigation" *ngIf="loggedInUser">
+            <nav>
+                <ul class="nav luna-nav">
+                    <li routerLinkActive="active">
+                        <a routerLink="/dashboard">Dashboard</a>
+                    </li>
+                    <li routerLinkActive="active">
+                        <a routerLink="/websites">Websites</a>
+                    </li>
+                </ul>
+            </nav>
+        </aside>
+
+        <section class="content">
+            <router-outlet></router-outlet>
+        </section>
+
+    </div>
+
+</div>

@@ -1,0 +1,12 @@
+<div class="block">
+
+    <ul class="list-style">
+        <li *ngFor="let time of times">
+            <input type="radio"
+                   name="timePeriod"
+                   (click)="selectTimePeriod(time,$event)">
+            {{time.name}}
+        </li>
+    </ul>
+
+</div>

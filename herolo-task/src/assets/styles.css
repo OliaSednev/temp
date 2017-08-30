@@ -1,0 +1,102 @@
+/* --- site-header --- */
+.site-header header {
+  position: relative;
+  height: 224px;
+  background-image: url("images/old-books.jpg");
+  background-position-y: 27%;
+  background-attachment: inherit;
+  padding-left: 0px;
+  padding-right: 0px;
+}
+.site-header header h1 {
+  color: white;
+  text-align: center;
+  letter-spacing: 1px;
+  font-size: 3.6em;
+  font-weight: bold;
+  padding-top: 112px;
+  z-index: 99;
+  position: relative;
+}
+.site-header header .overlay {
+  position: absolute;
+  z-index: 1;
+  height: 100%;
+  width: 100%;
+  background-color: #3c3c3c;
+  opacity: 0.5;
+}
+/* --- books-table --- */
+.book-table {
+  position: relative;
+  margin-bottom: 100px;
+}
+.book-table ul {
+  list-style: none;
+  text-align: center;
+  padding-left: 0px;
+}
+.book-table ul il {
+  border-radius: 4px;
+}
+.book-table .table-rows {
+  background-color: #f3f3f3;
+  border-radius: 4px;
+  line-height: 78px;
+  height: 81px;
+}
+.book-table .table-rows .author {
+  width: 40px;
+}
+.book-table .table-rows .disabledLink {
+  pointer-events: none;
+  cursor: default;
+}
+.book-table .table-title {
+  letter-spacing: 1px;
+  font-weight: bold;
+  font-family: Gisha, Arial;
+  font-size: 16px;
+  background-color: #eee;
+  margin-top: 25px;
+  height: 3.3em;
+  border-radius: 4px;
+  line-height: 52px;
+}
+/* --- modal template --- */
+.modal-body .book-cover {
+  width: 100px;
+}
+.modal-body .invalid-value {
+  font-size: 14px;
+  color: #ec2030;
+}
+/* --- add-book --- */
+.add-book-button {
+  margin-right: -5px;
+  text-align: right;
+}
+.add-book-button-xs {
+  padding-top: 10px;
+  text-align: right;
+}
+/* --- site-footer --- */
+.site-footer {
+  height: 90px;
+  width: 100%;
+  background-image: url(images/footer-img.png);
+  background-size: cover;
+  position: fixed;
+  bottom: 0px;
+  left: 0px;
+  right: 0px;
+  margin-bottom: 0px;
+  margin-top: 50px;
+}
+.site-footer .rights-reserved {
+  text-align: center;
+  color: white;
+  font-family: Gisha, Arial;
+  font-size: 16px;
+  padding-top: 43px;
+}

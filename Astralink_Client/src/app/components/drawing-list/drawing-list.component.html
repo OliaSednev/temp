@@ -1,0 +1,41 @@
+<div class="container container-margin-tops">
+
+    <div class="row">
+        <div class="col-md-4" *ngFor="let drawing of drawings">
+            <div class="card">
+                <div class="card-header card-chart card-img" data-background-color="white">
+                    <img src="{{drawing.data}}" class="thumbnail-img">
+                </div>
+                <div class="card-content">
+                    <h4 class="title">Created by {{drawing.created_by}}</h4>
+                    <p class="category">
+                        <span class="text-success"><i class="fa fa-calendar"></i> Created at </span>{{drawing.creation_date_time
+                        | date:'dd/MM/yyyy hh:mm:ss'}}.
+                        <button><a [routerLink]="['/drawing', drawing._id]">Edit</a></button>
+                        <button *ngIf="drawing.created_by===userName" (click)="deleteDrawing(drawing)"><a>Delete</a>
+                        </button>
+                    </p>
+                </div>
+                <div class="card-footer">
+                    <div class="stats">
+                        <i class="material-icons">access_time</i> creation time {{drawing.drawing_time | date:'mm:ss'}}
+                        minutes
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="carousel-border">
+        <carousel>
+            <slide *ngFor="let drawing of drawings">
+                <img [src]="drawing.data">
+
+                <div class="carousel-caption">
+                    <h4>Created by:{{drawing.created_by}}</h4>
+                    <h5>Created at: {{drawing.creation_date_time | date:'dd/MM/yyyy hh:mm:ss'}}</h5>
+                </div>
+            </slide>
+        </carousel>
+    </div>
+</div>

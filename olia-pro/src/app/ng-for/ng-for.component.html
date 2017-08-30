@@ -1,0 +1,31 @@
+<button (click)="onAdd()">Add</button>
+<ul>
+  <li *ngFor="let course of courses; index as i">
+    {{i}} - {{course.name}}
+    <button (click)="onRemove(course)">Remove</button>
+  </li>
+</ul>
+
+<ul>
+  <li *ngFor="let course of courses; even as isEven">
+    {{course.name}}<span *ngIf="isEven">(even)</span>
+  </li>
+</ul>
+
+<ul>
+  <li *ngFor="let course of courses; odd as isOdd">
+    {{course.name}}<span *ngIf="isOdd">(odd)</span>
+  </li>
+</ul>
+
+<ul>
+  <li *ngFor="let course of courses; first as isFirst">
+    {{course.name}}<span *ngIf="isFirst">(first)</span>
+  </li>
+</ul>
+
+<ul>
+  <li *ngFor="let course of courses; last as isLast">
+    {{course.name}}<span *ngIf="isLast">(last)</span>
+  </li>
+</ul>

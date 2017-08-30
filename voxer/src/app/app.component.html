@@ -1,0 +1,55 @@
+<h1>Persons</h1>
+
+<div class="container">
+
+    <div class="row">
+
+        <div class="col-sm-offset-1 col-sm-10 dropdown">
+            <button class="btn btn-primary dropdown-toggle btn-margin"
+                    type="button"
+                    data-toggle="dropdown">Options
+                <span class="caret"></span>
+            </button>
+            <ul class="dropdown-menu">
+                <li (click)="loadPersons()"><a href="#">Load</a></li>
+                <li><a href="#">Sort</a></li>
+                <li><a href="#">Filter</a></li>
+                <li (click)="saveToStorage()"><a href="#">Save to storage</a></li>
+            </ul>
+        </div>
+
+    </div>
+
+    <div class="row">
+        <input type="file" (change)="readFile($event)" class="out-of-view" id="readFileButton">
+    </div>
+
+    <div class="row">
+        <div class="col-sm-offset-1 col-sm-10 dropdown">
+            <table class="persons-table">
+                <tr>
+                    <th class="col-sm-2">Name</th>
+                    <th class="col-sm-3">Address</th>
+                    <th class="col-sm-2">Phone</th>
+                    <th class="col-sm-1">Photo</th>
+                    <th class="col-sm-1">Delete</th>
+                    <th class="col-sm-1">Update</th>
+                </tr>
+                <tr *ngFor="let person of filteredPersons">
+                    <td><input type="text" [(ngModel)]="person.name"></td>
+                    <td><input type="text" [(ngModel)]="person.address"></td>
+                    <td>
+                        <input type="tel" pattern="^[0-9\-\+\s\(\)]*$" [(ngModel)]="person.phone"></td>
+                    <td><img src="{{person.photo}}" class="photo"></td>
+                    <td>
+                        <button (click)="delete(person)">Delete</button>
+                    </td>
+                    <td>
+                        <button (click)="update(person)">Update</button>
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </div>
+
+</div>

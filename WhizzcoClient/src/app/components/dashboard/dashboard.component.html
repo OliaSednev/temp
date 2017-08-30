@@ -1,0 +1,98 @@
+<div class="container container-margin-tops">
+
+    <div class="row" *ngIf="dashboardData">
+
+        <div class="col-sm-3">
+            <div class="card card-stats">
+                <div class="card-header" data-background-color="orange">
+                    <i class="material-icons">content_copy</i>
+                </div>
+                <div class="card-content">
+                    <p class="category">Impressions</p>
+                    <h3 class="title">{{dashboardData.impressisons}}</h3>
+                </div>
+                <div class="card-footer">
+                    <div class="stats">
+                        <i class="material-icons">access_time</i> campaign sent 2 days ago
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-sm-3">
+            <div class="card card-stats">
+                <div class="card-header" data-background-color="green">
+                    <i class="material-icons">store</i>
+                </div>
+                <div class="card-content">
+                    <p class="category">Clicks</p>
+                    <h3 class="title">{{dashboardData.clicks}}</h3>
+                </div>
+                <div class="card-footer">
+                    <div class="stats">
+                        <i class="material-icons">date_range</i> Last 24 Hours
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-sm-3">
+            <div class="card card-stats">
+                <div class="card-header" data-background-color="red">
+                    <i class="material-icons">info_outline</i>
+                </div>
+                <div class="card-content">
+                    <p class="category">CTR</p>
+                    <h3 class="title">{{dashboardData.ctr}}</h3>
+                </div>
+                <div class="card-footer">
+                    <div class="stats">
+                        <i class="material-icons">date_range</i> Last 24 Hours
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-sm-3">
+            <div class="card card-stats">
+                <div class="card-header" data-background-color="blue">
+                    <i class="fa fa-twitter"></i>
+                </div>
+                <div class="card-content">
+                    <p class="category">eCPM</p>
+                    <h3 class="title">{{dashboardData.ecpm}}</h3>
+                </div>
+                <div class="card-footer">
+                    <div class="stats">
+                        <i class="material-icons">date_range</i> Last 24 Hours
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="row">
+
+        <div class="row">
+            <div class="col-sm-12" *ngIf="dashboardData">
+                <div>
+                    <canvas baseChart
+                            class="line-chart"
+                            [datasets]="dashboardData.lineChartData.lineChartData"
+                            [labels]="dashboardData.lineChartData.lineChartLabels"
+                            [options]="lineChartOptions"
+                            [colors]="lineChartColors"
+                            [chartType]="lineChartType">
+                    </canvas>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="left-chart"  id="piechart1"></div>
+        <div class="right-chart" id="piechart2"></div>
+    </div>
+
+</div>

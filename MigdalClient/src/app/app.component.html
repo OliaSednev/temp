@@ -1,0 +1,47 @@
+<div>
+
+    <h1>
+        Welcome to our catalog Items!
+    </h1>
+
+    <div>
+        <fieldset>
+            <legend>Catalog items</legend>
+
+            <table border="1px solid white">
+                <th>ID:</th>
+                <th>Title:</th>
+                <th>Created By:</th>
+                <th>Created At:</th>
+                <th>Last Updated At:</th>
+                <th></th>
+                <th></th>
+                <th></th>
+
+
+                <tr *ngFor="let catalogItem of catalogItems">
+                    <td>{{catalogItem.ID}}</td>
+                    <td><input type="text" [(ngModel)]="catalogItem.Title"/></td>
+                    <td><input type="text" [(ngModel)]="catalogItem.CreatedBy"/></td>
+                    <td>{{catalogItem.Created | date:'dd/MM/yy hh:mm:ss' }}</td>
+                    <td>{{catalogItem.LastUpdated | date:'dd/MM/yy hh:mm:ss' }}</td>
+                    <td>
+                        <button class="btn btn-primary" (click)="addCatalogItem(catalogItem)">Add</button>
+                    </td>
+                    <td>
+                        <button class="btn btn-primary" (click)="deleteCatalogItem(catalogItem)">Delete</button>
+                    </td>
+                    <td>
+                        <button class="btn btn-primary" (click)="updateCatalogItem(catalogItem)">Update</button>
+                    </td>
+                </tr>
+
+            </table>
+
+            <br/>
+
+            <button class="btn btn-primary" (click)="addEmptyItem()">Add Row</button>
+        </fieldset>
+
+    </div>
+</div>

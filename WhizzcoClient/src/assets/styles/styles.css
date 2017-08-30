@@ -1,0 +1,60 @@
+.right-chart {
+    float: right;
+    display: inline-block !important;
+}
+
+.left-chart {
+    float: left;
+    display: inline-block !important;
+}
+
+.line-chart {
+    height: 250px !important;
+    width: 100%;
+}
+
+.line-chart-2 {
+    height: 250px !important;
+    width: 100%;
+}
+
+.data-panel {
+    border: 1px solid black;
+    /*margin: 0 10px;*/
+    width: 22.5%;
+    text-align: center;
+    background: lavender;
+}
+
+.left-margin {
+    margin: 0 0 0 3%
+}
+
+.profile-dropdown {
+    margin-top: 12px;
+}
+
+.logo-text {
+    color: orange !important;
+}
+
+th {
+    color: white;
+    background-color: orange;
+    font-weight: bold;
+}
+
+.chart-panel {
+    font-weight: bold;
+    text-align: center;
+    color: orange;
+}
+
+.container-margin-top {
+    margin-top: -30px;
+}
+
+.chart-canvas {
+    height: 250px;
+    width: 250px;
+}

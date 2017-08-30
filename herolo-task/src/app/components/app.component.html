@@ -1,0 +1,169 @@
+<div class="site-header">
+
+  <header>
+    <div class="overlay"></div>
+    <h1>Books Library!</h1>
+  </header>
+
+</div>
+
+
+<div class="container">
+
+  <div  class="book-table">
+
+    <ul class="table-title">
+      <li class="col-xs-4 col-sm-3">Author</li>
+      <li class="hidden-xs col-sm-2">Date</li>
+      <li class="col-xs-4 col-sm-3">Title</li>
+      <li class="hidden-xs hidden-sm col-md-1 col-lg-2">Cover</li>
+      <li class="col-xs-4 col-md-3 col-lg-2">
+
+          <div class="add-book-button">
+            <button class="btn btn-warning"
+                    (click)="addBook(template)">Add a new book</button>
+          </div>
+
+      </li>
+    </ul>
+
+    <ul *ngFor="let book of books" class="table-rows">
+
+      <li  class="col-xs-4 col-sm-3">
+        <a [class.disabledLink]="!book.authorRef"
+           href="{{book.authorRef}}"
+           target="_blank">{{book.autuor}}
+        </a>
+      </li>
+      <li class="col-sm-2 hidden-xs">
+        {{book.date | date:'shortDate'}}
+      </li>
+      <li class="col-xs-4 col-sm-3">
+        {{book.title | titlecase | englishLetters }}
+      </li>
+      <li class="hidden-xs hidden-sm col-md-1 col-lg-2">
+        <img src="{{book.image}}" class="author">
+      </li>
+      <li class="col-xs-2 col-md-1">
+        <button type="button"
+                class="btn btn-primary"
+                (click)="openModal(template, book)">Edit
+        </button>
+      </li>
+      <li class="col-xs-2 col-lg-1">
+        <button class="btn btn-success"
+                (click)="deleteBook(book)">Delete
+        </button>
+      </li>
+
+    </ul>
+
+  </div>
+</div>
+
+<div class="site-footer">
+  <div class="row">
+    <div class="col-xs-12 rights-reserved">
+      <small>All Rights Reserved &copy; 2017, Olia Sednev Ltd.</small>
+    </div>
+  </div>
+</div>
+
+
+
+
+
+<ng-template #template>
+
+  <div class="modal-header">
+    <h4 class="modal-title">{{editedBook.title}}</h4>
+  </div>
+
+  <div class="modal-body">
+    <div class="row">
+      <form novalidate
+            #bookDetailsForm="ngForm"
+            class="form-horizontal">
+
+        <div class="form-group row">
+          <div class="col-sm-offset-5 col-sm-2 col-sm-offset-5">
+            <img src="{{editedBook.image}}"
+                 id="myimage"
+                 class="book-cover">
+          </div>
+        </div>
+
+        <div class="form-group row">
+
+          <label class="col-sm-2 control-label">Author:</label>
+
+          <div class="col-sm-4">
+            <input type="text"
+                   name="author"
+                   #author="ngModel"
+                   required
+                   class="form-control"
+                   [(ngModel)]="editedBook.autuor">
+            <div class="invalid-value"
+                 [hidden]="author.valid || author.pristine">
+              Author cannot be blank
+            </div>
+          </div>
+
+          <label class="col-sm-1 control-label">Title:</label>
+
+          <div class="col-sm-4">
+            <input type="text"
+                   name="title"
+                   required
+                   #title="ngModel"
+                   class="form-control"
+                   [(ngModel)]="editedBook.title">
+            <div class="invalid-value"
+                 [hidden]="title.valid || title.pristine">
+              Title cannot be blank
+            </div>
+          </div>
+        </div>
+        <div class="form-group row">
+          <label class="col-sm-2 control-label">Date:</label>
+
+          <div class="col-sm-4">
+            <input type="date"
+                   name="date"
+                   class="form-control"
+                   [(ngModel)]="editedBook.date">
+          </div>
+
+          <label class="col-sm-1 control-label">Image:</label>
+
+          <div class="col-sm-4">
+            <input type="file"
+                   (change)="onFileSelected($event)"
+                   name="cover"
+                   class="form-control"
+                   [(ngModel)]="editedBook.image">
+          </div>
+        </div>
+
+      </form>
+    </div>
+  </div>
+
+  <div class="modal-footer">
+    <button (click)="saveEdit()"
+            [disabled]="!bookDetailsForm.valid"
+            class="btn btn-primary">Save</button>
+
+    <button aria-label="Close"
+            class="btn btn-warning"
+            (click)="modalRef.hide()">Cancel
+    </button>
+  </div>
+
+</ng-template>
+
+
+
+
+

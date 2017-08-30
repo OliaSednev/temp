@@ -1,0 +1,114 @@
+<h1>Persons</h1>
+
+<div class="container">
+
+    <div class="row">
+
+        <div class="col-sm-offset-1 col-sm-10 dropdown">
+            <button class="btn btn-primary dropdown-toggle btn-margin"
+                    type="button"
+                    data-toggle="dropdown">Options
+                <span class="caret"></span>
+            </button>
+            <ul class="dropdown-menu">
+                <li (click)="loadPersons()"><a href="#">Reset</a></li>
+                <li><a href="#">Sort By Name</a></li>
+                <li><a href="#">Sort By Address</a></li>
+                <li><a href="#">Sort By Phone</a></li>
+                <li><a href="#">Filter</a></li>
+                <li (click)="saveToStorage()"><a href="#">Save to storage</a></li>
+            </ul>
+        </div>
+
+    </div>
+
+    <div class="row col-sm-offset-1 col-sm-10">
+        <nav class="navbar navbar-default">
+            <div class="container-fluid">
+                <ul class="nav navbar-nav">
+                    <li (click)="loadPersons()" class="active"><a href="#">Reset</a></li>
+                    <li (click)="addPerson()" class="active"><a href="#">Add</a></li>
+                    <li class="dropdown">
+                        <a class="dropdown-toggle" data-toggle="dropdown" href="#">Sort
+                            <span class="caret"></span></a>
+                        <ul class="dropdown-menu">
+                            <li (click)="sortNyName()"><a href="#">Sort By Name</a></li>
+                            <li (click)="sortByAddress()"><a href="#">Sort By Address</a></li>
+                        </ul>
+                    </li>
+                    <li (click)="saveToStorage()" class="active"><a href="#">Save</a></li>
+                </ul>
+                <form class="navbar-form navbar-left">
+                    <div class="form-group">
+                        <input type="text" class="form-control" name="filter" [(ngModel)]="filterString"
+                               placeholder="Filter">
+                    </div>
+                    <button type="submit" (click)="filter()" class="btn btn-default">Filter</button>
+                    <label class="checkbox-inline">
+                        <input type="checkbox" (change)="onEdit()" data-toggle="toggle"> Enable Editing
+                    </label>
+                </form>
+            </div>
+        </nav>
+    </div>
+
+    <div class="row">
+        <input type="file" (change)="readFile($event)" class="out-of-view" id="readFileButton">
+    </div>
+
+    <div class="row">
+        <div class="col-sm-offset-1 col-sm-10 well well-lg">
+            <table class="table table-striped table-bordered table-hover table-responsive">
+                <tr>
+                    <th class="col-sm-2">
+                        <button class="header-button"
+                                (click)="nameClick()">
+                            Name
+                            <span class="fa"
+                                  [class.fa-sort-desc]="isNameDesc()"
+                                  [class.fa-sort-asc]="isNameAsc()">
+                            </span>
+                        </button>
+                    </th>
+                    <th class="col-sm-3">
+                        <button class="header-button"
+                                (click)="addressClick()">
+                            Address
+                            <span class="fa"
+                                  [class.fa-sort-desc]="isAddressDesc()"
+                                  [class.fa-sort-asc]="isAddressAsc()">
+                            </span>
+                        </button>
+                    </th>
+                    <th class="col-sm-2">
+                        <button class="header-button"
+                                (click)="phoneClick()">
+                            Phone
+                            <span class="fa"
+                                  [class.fa-sort-desc]="isPhoneDesc()"
+                                  [class.fa-sort-asc]="isPhoneAsc()">
+                            </span>
+                        </button>
+                    </th>
+                    <th class="col-sm-1">Photo</th>
+                    <th class="col-sm-1">Delete</th>
+                    <th class="col-sm-1">Update</th>
+                </tr>
+                <tr *ngFor="let person of filteredPersons">
+                    <td><input type="text" autofocus [(ngModel)]="person.name" [readonly]="isFormReadonly"></td>
+                    <td><input type="text" [(ngModel)]="person.address"></td>
+                    <td>
+                        <input type="tel" pattern="^[0-9\-\+\s\(\)]*$" [(ngModel)]="person.phone"></td>
+                    <td><img src="{{person.photo}}" class="photo img-rounded"></td>
+                    <td>
+                        <button (click)="delete(person)">Delete</button>
+                    </td>
+                    <td>
+                        <button (click)="update(person)">Update</button>
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </div>
+
+</div>

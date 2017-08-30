@@ -1,0 +1,163 @@
+.data-panel {
+    border: 1px solid black;
+    width: 22.5%;
+    text-align: center;
+    background: lavender;
+}
+
+.left-margin {
+    margin: 0 0 0 3%
+}
+
+.profile-dropdown {
+    margin-top: 12px;
+}
+
+.logo-text {
+    color: orange !important;
+}
+
+.container-margin-top {
+    margin-top: -30px;
+}
+
+.drawing-area {
+    cursor:crosshair ;
+    margin-top: 90px;
+}
+
+.canvas-area {
+    border: 2px solid rgb(254,161,30);
+    margin-left: 30px;
+}
+
+.time-section {
+    float: right;
+    margin-right: 40px;
+    margin-bottom: 5px;
+}
+
+.thumbnail-img {
+    width: 70% !important;
+    margin: auto;
+    margin-top: 25px;
+    margin-left: 15%;
+}
+
+.palette-case {
+    width:260px;
+    margin:auto;
+    text-align:center;
+}
+
+.palette-box {
+    float:left;
+    padding:2px 6px 2px 6px;
+}
+
+.palette {
+    border:2px solid white;
+    height:36px;
+    width:36px;
+}
+
+.palette-button {
+   margin-top: 0;
+   height: 20px;
+}
+
+.vertical-height {
+    height: 20px;
+    margin-top: 0;
+}
+
+.tool-size {
+    font-size: 2em;
+}
+
+.brush-width {
+    width: 50px;
+    padding-left: 4px;
+    background: orange;
+    border: 1px solid white;
+}
+
+.brushes-group {
+    height: 25px;
+}
+
+.brushes-background {
+    background: orange;
+}
+
+.size-margin {
+    margin-top: 5px;
+}
+
+.spin-button {
+    height: 2px;
+    border: 1px solid white;
+}
+
+.red{
+    background-color:#c22;
+}
+
+.blue{
+    background-color:#22c;
+}
+
+.yellow{
+    background-color:yellow;
+}
+
+.green{
+    background-color:#2c2;
+}
+
+.white{
+    background-color:#fff;
+}
+
+.black{
+    background-color:#000;
+}
+
+.selected-color {
+    border:2px dashed #fff;
+}
+
+.tool-bar-row {
+    margin-top: -40px;
+}
+
+.left-button-margin {
+    margin-left: 18px;
+}
+
+.carousel-border {
+    border: 2px solid orange;
+    border-radius: 5px;
+    color: orange;
+}
+.carousel-caption > h4 {
+    color: orange;
+}
+
+.carousel-caption > h5 {
+    color: orange;
+}
+
+.carousel-indicators > li{
+    color: orange;
+    border-color: orange;
+}
+
+.carousel-indicators > li.active {
+    background-color: orange;
+}
+
+.card-img {
+    border: 2px solid orange;
+    background-color: white !important;
+}

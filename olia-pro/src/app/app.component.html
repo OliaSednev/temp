@@ -1,0 +1,59 @@
+<div class="container">
+
+  <app-like
+    [likesCount]="tweet.likesCount"
+    [isActive]="tweet.isLiked"
+  ></app-like>
+
+  <div>ngSwitchCase</div>
+  <app-ng-switch-case></app-ng-switch-case>
+
+  <div>ngFor</div>
+  <app-ng-for></app-ng-for>
+
+  <div>ngFor-and-track-by</div>
+  <app-ng-for-and-track-by></app-ng-for-and-track-by>
+
+
+  <div>ng-class</div>
+  <app-ng-class></app-ng-class>
+
+
+  <div>ng-content</div>
+  <bootstrap-panel>
+
+    <div class="heading">Heading</div>
+
+    <div class="body">
+      <h1>body</h1>
+      <p>some content........</p>
+    </div>
+
+  </bootstrap-panel>
+
+
+  <div>ng-container</div>
+  <app-ng-container>
+    <ng-container class="heading">Heading</ng-container>
+
+    <div class="body">
+      <h1>body</h1>
+      <p>some content........</p>
+    </div>
+  </app-ng-container>
+
+
+  <div>input format/ creating custom Directives</div>
+  <input type="text" [appInputFormat]="'lowercase'">
+
+
+  <div>zippy</div>
+  <zippy title="Shipping Details">
+    Shipping Details Content
+  </zippy>
+
+  <div>contact-form</div>
+  <new-course-form></new-course-form>
+
+
+</div>

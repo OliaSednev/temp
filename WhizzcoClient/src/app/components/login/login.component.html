@@ -1,0 +1,61 @@
+<div class="spacebook-view login-view">
+    <header class="container-fluid">
+        <div class="overlay"></div>
+        <div class="row table-container">
+            <div class="text-center page-title table-cell-centered">
+                <h1>
+                    Login
+                </h1>
+            </div>
+        </div>
+    </header>
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12 content">
+                <form #loginForm="ngForm" (ngSubmit)="login($event)">
+                    <div class="form-group"
+                         [class.has-error]="!username.valid && !username.pristine">
+                        <div class="col-sm-offset-4 col-sm-4 col-sm-offset-4">
+                            <input type="text"
+                                   class="form-control"
+                                   name="username"
+                                   #username="ngModel"
+                                   [(ngModel)]="loginData.username"
+                                   placeholder="Username"
+                                   required>
+                            <div class="invalid-value" [hidden]="username.valid || username.pristine">User name cannot be blank</div>
+                        </div>
+                    </div>
+                    <div class="form-group"
+                         [class.has-error]="!password.valid && !password.pristine">
+                        <div class="col-sm-offset-4 col-sm-4 col-sm-offset-4">
+                            <input type="password"
+                                   class="form-control"
+                                   name="password"
+                                   #password="ngModel"
+                                   [(ngModel)]="loginData.password"
+                                   placeholder="Password"
+                                   required>
+                            <div class="invalid-value" [hidden]="password.valid || password.pristine">Password cannot be blank</div>
+
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-sm-4 col-sm-offset-4 col-xs-8 col-xs-offset-2 text-right">
+                            <!--<span class="forget-password-link">-->
+                                <!--<a href="//board.pickspace.net/forget-password">Forgot Password?</a>-->
+                            <!--</span>-->
+                            <button type="submit"
+                                    class="btn btn-primary"
+                                    [disabled]="!loginForm.valid">Login
+                            </button>
+                            <div class="text-center text-danger" [hidden]="!invalidCredentials">
+                                Username and password combination does not match
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

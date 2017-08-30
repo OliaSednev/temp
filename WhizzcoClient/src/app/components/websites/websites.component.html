@@ -1,0 +1,29 @@
+<div class="container container-margin-tops">
+
+    <div *ngIf="websitesData" class="row">
+
+        <table class="table table-bordered table-hover table-striped">
+            <thead class="text-primary">
+            <tr>
+                <th>Website</th>
+                <th>Impressions</th>
+                <th>Clicks</th>
+            </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let websiteData of websitesData">
+                    <td class="col-sm-2"><a [routerLink]="['/websites', websiteData.id]" class="fill-all no-underline">{{websiteData.website}}</a></td>
+                    <td class="col-sm-2"><a [routerLink]="['/websites', websiteData.id]" class="fill-all no-underline">{{websiteData.impressions}}</a></td>
+                    <td class="col-sm-2 text-primary"><a [routerLink]="['/websites', websiteData.id]" class="fill-all no-underline">{{websiteData.clicks}}</a></td>
+                </tr>
+            </tbody>
+        </table>
+
+    </div>
+
+    <div class="row">
+        <div class="left-chart"  id="impressionsChart"></div>
+        <div class="right-chart" id="clicksChart"></div>
+    </div>
+
+</div>

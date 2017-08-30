@@ -1,0 +1,41 @@
+<div>
+    <div class="selection-area" *ngIf="_selectedDeviceGroups && _selectedDeviceGroups.length > 0">
+
+        <span class="step-number step-number-summary">1</span>
+
+        <ul class="list-style summary-devices-list">
+            <li *ngFor="let deviceGroup of _selectedDeviceGroups">
+
+                <ul class="list-style">
+                    <li *ngFor="let device of deviceGroup.devices">{{device.name}}</li>
+                </ul>
+
+            </li>
+        </ul>
+    </div>
+
+    <div class="selection-area summary-protocols-margin" *ngIf="_selectedProtocols && _selectedProtocols.length > 0">
+        <span class="step-number step-number-summary">2</span>
+
+        <ul class="list-style summary-protocols-list">
+            <li *ngFor="let protocol of _selectedProtocols">
+                {{protocol.name}}
+            </li>
+        </ul>
+    </div>
+
+    <div class="selection-area summary-time-period-margin" *ngIf="selectedTimePeriod">
+        <span class="step-number step-number-summary">3</span> <span class="time-period-summary">{{selectedTimePeriod.name}}</span>
+    </div>
+
+    <div class="summary-buttons">
+        <a (click)="clear()">Clear</a>
+        <button class="start-learning-btn" (click)="startLearning()">
+            <span>
+                <i class="glyphicon glypicon-margins glyphicon-play start-learning-glyphicon"></i>
+            </span>Start Learning
+        </button>
+
+    </div>
+
+</div>

@@ -1,0 +1,28 @@
+<div class="group-header"
+     (click)="isCollapsed = !isCollapsed">
+
+    <span>
+        <i class="glyphicon glypicon-margins"
+           [ngClass]="{'glyphicon-triangle-top': !isCollapsed, 'glyphicon-triangle-bottom': isCollapsed}"></i>
+    </span>
+
+    <input type="checkbox"
+           class="group-checkbox"
+           name="all"
+           [checked]="isAllChecked()"
+           (click)="checkAll($event)">
+
+    <span>{{deviceGroup.name}}</span>
+
+</div>
+
+<div [collapse]="isCollapsed">
+
+    <ul class="list-style">
+        <li *ngFor="let device of deviceGroup.devices">
+            <input type="checkbox"
+                   [(ngModel)]="device.state"
+                   (change)="deviceCheckUncheck(device, $event)">{{device.name}}
+        </li>
+    </ul>
+</div>

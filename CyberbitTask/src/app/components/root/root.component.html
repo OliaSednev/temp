@@ -1,0 +1,43 @@
+<div class="container main-container">
+
+    <div class="row">
+
+        <div class="col-sm-3">
+            <h5><span class="step-number">1</span> Select Blackboxes</h5>
+
+            <ul *ngIf="data">
+                <device-group #cmp
+                              *ngFor="let deviceGroup of data.device_groups"
+                              [deviceGroup]="deviceGroup"
+                              (deviceGroupChanged)="onDeviceGroupSelectionChanged($event)">
+                </device-group>
+            </ul>
+        </div>
+
+        <div class="col-sm-3">
+            <h5><span class="step-number">2</span> Select Protocols</h5>
+            <protocols *ngIf="data"
+                       [protocols]="data.protocols"
+                       (protocolChanged)="onProtocolSelected($event)">
+            </protocols>
+        </div>
+
+        <div class="col-sm-3">
+            <h5><span class="step-number">3</span> Select Time Period</h5>
+            <time-period *ngIf="data"
+                         [times]="data.times"
+                         (timePeriodChanged)="onTimePeriodSelected($event)">
+            </time-period>
+        </div>
+
+        <div class="col-sm-3">
+            <h5>Summary</h5>
+            <selections-summary [selectedDeviceGroup]="selectedDeviceGroups"
+                                [selectedProtocols]="selectedProtocols"
+                                [selectedTimePeriod]="selectedTimePeriod"
+                                (clearSelected)="onClearSelected()">
+            </selections-summary>
+        </div>
+
+    </div>
+</div>
